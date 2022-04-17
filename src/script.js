@@ -5,7 +5,7 @@ const initDataText = [
 
 const dataText = [
     "My name is Spiros, I am 25 yo and I live in Greece.",
-    "I am an electrical and computer engineer student in the university of Patras in Greece.",
+    "I am an electrical and computer engineer student at the University of Patras in Greece.",
     "I am currently finishing writing my thesis, that I developed an application for.",
     "In the meantime I am working a 9-5 as a Web Developer at the NCSR Demokritos since July 2021.",
     "Did I mention that I am also trading NFTs, as a second job, for the past year?",
@@ -18,7 +18,7 @@ const dataLinks = {
     './data/CV.pdf' : '<i class="fa-solid fa-arrow-up-right-from-square"></i>'
 }
 
-const typeSpeed = 150;
+const typeSpeed = 90;
 let index = 0;
 let playTimeStarted = false;
 let playTimeReady = false;
@@ -85,14 +85,14 @@ const showText = async (dataText) => {
             pElement.innerHTML = '&nbsp&nbsp&nbsp';
             pElement.appendChild(spanElement);
             containerText.appendChild(pElement);
-            await timeout(1500);
+            await timeout(800);
             pElement.classList.remove('on-hold');
             for (let i = 1; i <= dataText[index].length; i++) {
                 spanElement.innerText = spanElement.innerHTML + dataText[index].substring(i - 1, i);
                 await timeout(typeSpeed);
             }
             pElement.classList.add('on-hold');
-            await timeout(typeSpeed + 800);
+            await timeout(typeSpeed + 500);
         }
     } catch (e) {
         console.error(e);
@@ -108,7 +108,7 @@ async function addLinks() {
         aElement.innerHTML = `${link.split('//')[1]?link.split('//')[1]:link.split('/').pop()} ${dataLinks[link]}`;
         containerLink.appendChild(aElement);
     }
-    await timeout(1000);
+    await timeout(800);
     containerLink.classList.add('show');
 }
 
