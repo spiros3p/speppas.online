@@ -102,7 +102,7 @@ const showText = async (dataText) => {
 async function addLinks() {
     for (link in dataLinks){
         let aElement = document.createElement("a");
-        aElement.classList.add('link', 'col-auto', 'mx-3');
+        aElement.classList.add('link', 'col-auto', 'mx-3', 'my-2');
         aElement.setAttribute('href', link);
         aElement.setAttribute('target', '_blank');
         aElement.innerHTML = `${link.split('//')[1]?link.split('//')[1]:link.split('/').pop()} ${dataLinks[link]}`;
