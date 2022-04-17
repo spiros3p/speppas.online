@@ -2,33 +2,53 @@ main{
     min-height: 100vh;
 }
 
-.text-container{
+div#text-container{
     position: relative;
+    opacity: 1;
+    /* transition: opacity 10s; */
 }
 
-.text-container span.info-text{
-    position: absolute;
-    top: 22px;
+div#text-container.hide{
+    opacity: 0;
+    transition: opacity 0.6s ease-in;
+}
+
+div#text-container span#indication-text{
     font-style: italic;
     color: rgb(70, 70, 70);
     font-weight: 300;
+    opacity: 0;
+    transition: opacity 0.6s ease-in;
 }
 
-.text-container p{
+div#text-container span#indication-text.show{
+    opacity: 1;
+    transition: opacity 1s ease-in;
+}
+
+div#text-container p{
     border-right: 0 solid black;
     width: fit-content;
     padding-right: 1px; 
     margin-bottom: 0;
+    font-weight: 500;
+    font-size: 1.125rem;
+    height: 27px;
 }
 
-.text-container p:last-of-type{
+div#text-container p:last-of-type{
     border-right: 2px solid black;
     width: fit-content;
     padding-right: 1px; 
 }
 
-.text-container p.on-hold{
+div#text-container p.on-hold{
     animation: blink-caret 0.75s step-end infinite;
+}
+
+div#text-container a.link{
+    display: block;
+    
 }
 
 
