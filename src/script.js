@@ -18,7 +18,7 @@ const dataLinks = {
     './data/CV.pdf' : '<i class="fa-solid fa-arrow-up-right-from-square"></i>'
 }
 
-const typeSpeed = 90;
+const typeSpeed = 60;
 let index = 0;
 let playTimeStarted = false;
 let playTimeReady = false;
