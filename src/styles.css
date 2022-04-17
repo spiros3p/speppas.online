@@ -1,3 +1,44 @@
 main{
     min-height: 100vh;
 }
+
+.text-container{
+    position: relative;
+}
+
+.text-container span.info-text{
+    position: absolute;
+    top: 22px;
+    font-style: italic;
+    color: rgb(70, 70, 70);
+    font-weight: 300;
+}
+
+.text-container p{
+    border-right: 0 solid black;
+    width: fit-content;
+    padding-right: 1px; 
+    margin-bottom: 0;
+}
+
+.text-container p:last-of-type{
+    border-right: 2px solid black;
+    width: fit-content;
+    padding-right: 1px; 
+}
+
+.text-container p.on-hold{
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+
+/* cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+}
+
+@-webkit-keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+}
