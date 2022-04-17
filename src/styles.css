@@ -1,3 +1,7 @@
+html *{
+    font-family: 'Roboto Mono', monospace;
+}
+
 main{
     min-height: 100vh;
 }
@@ -27,30 +31,64 @@ div#text-container span#indication-text.show{
 }
 
 div#text-container p{
+    margin-bottom: 5px;
+}
+
+div#text-container p span{
     border-right: 0 solid black;
     width: fit-content;
     padding-right: 1px; 
-    margin-bottom: 0;
     font-weight: 500;
-    font-size: 1.125rem;
-    height: 27px;
+    font-size: 1.3rem;
+    min-height: 27px;
+    /* display: inline; */
 }
 
-div#text-container p:last-of-type{
+div#text-container p:last-of-type span{
     border-right: 2px solid black;
     width: fit-content;
     padding-right: 1px; 
 }
 
-div#text-container p.on-hold{
+div#text-container p.on-hold span{
     animation: blink-caret 0.75s step-end infinite;
 }
 
-div#text-container a.link{
-    display: block;
-    
+div#link-container{
+    opacity: 0;
+    transition: opacity 0.5s linear;
 }
 
+div#link-container.show{
+    opacity: 1;
+    transition: opacity 1s linear;
+}
+
+div#link-container a.link{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 8px 13px;
+    outline: 0px solid white;
+    transition: outline 0.3s linear;
+}
+
+div#link-container a.link:hover{
+    color: white;
+    outline: 2px solid blueviolet;
+    transition: outline 0.3s linear;
+}
+
+div#link-container a.link i{
+    margin-left: 5px;
+}
+
+/* mobile - bootstrap md breakpoint */
+@media screen and (max-width: 767.5px){
+    div#text-container p span{
+        font-size: 1.125rem;
+    }
+}
 
 /* cursor effect */
 @keyframes blink-caret {

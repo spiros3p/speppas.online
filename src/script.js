@@ -1,16 +1,21 @@
 const initDataText = [
     "Welcome!",
-    // "My name is Spiros.",
-    // "This is a temporary version of my website..."
+    "This is a temporary version of my website..."
 ]
 
 const dataText = [
-    "My name is Spiros and I am from Greece.",
-    "I am currently finishing writing my thesis",
+    "My name is Spiros, I am 25 yo and I live in Greece.",
+    "I am an electrical and computer engineer student in the university of Patras in Greece.",
+    "I am currently finishing writing my thesis, that I developed an application for.",
+    "In the meantime I am working a 9-5 as a Web Developer at the NCSR Demokritos since July 2021.",
+    "Did I mention that I am also trading NFTs, as a second job, for the past year?",
+    "Entry dev jobs in Greece do not pay that well...",
+    "Feel free to check my personal projects on github and my CV below."
 ]
 
 const dataLinks = {
-    'https://github.com/spiros3p' : '<i class="fa-brands fa-github"></i>'
+    'https://github.com/spiros3p' : '<i class="fa-brands fa-github"></i>',
+    './data/CV.pdf' : '<i class="fa-solid fa-arrow-up-right-from-square"></i>'
 }
 
 const typeSpeed = 150;
@@ -21,10 +26,10 @@ let playTimeReady = false;
 let indicationText = document.createElement("span");
 indicationText.setAttribute("id", "indication-text");
 let containerText = document.getElementById('text-container');
+let containerLink = document.getElementById('link-container');
 
 window.onload = async () => {
     try {
-        addLinks();
         if (is_touch_enabled()) {
             indicationText.innerText = "tap the screen to continue"
             console.debug("touchscreen detected");
@@ -64,6 +69,7 @@ const playTime = async () => {
             containerText.innerHTML = '';
             await timeout(600);
             await showText(dataText);
+            await addLinks();
         }
     } catch (e) {
         console.error(e);
@@ -74,12 +80,15 @@ const showText = async (dataText) => {
     try {
         for (index in dataText) {
             let pElement = document.createElement("p");
+            let spanElement = document.createElement("span");
             pElement.classList.add('on-hold');
+            pElement.innerHTML = '&nbsp&nbsp&nbsp';
+            pElement.appendChild(spanElement);
             containerText.appendChild(pElement);
             await timeout(1500);
             pElement.classList.remove('on-hold');
             for (let i = 1; i <= dataText[index].length; i++) {
-                pElement.innerText = pElement.innerHTML + dataText[index].substring(i - 1, i);
+                spanElement.innerText = spanElement.innerHTML + dataText[index].substring(i - 1, i);
                 await timeout(typeSpeed);
             }
             pElement.classList.add('on-hold');
@@ -90,16 +99,17 @@ const showText = async (dataText) => {
     }
 }
 
-function addLinks() {
+async function addLinks() {
     for (link in dataLinks){
-        console.log(dataLinks[link]);
         let aElement = document.createElement("a");
-        aElement.classList.add('link');
+        aElement.classList.add('link', 'col-auto', 'mx-3');
         aElement.setAttribute('href', link);
         aElement.setAttribute('target', '_blank');
-        aElement.innerHTML = link.split('//')[1] +" "+ dataLinks[link];
-        containerText.appendChild(aElement);
+        aElement.innerHTML = `${link.split('//')[1]?link.split('//')[1]:link.split('/').pop()} ${dataLinks[link]}`;
+        containerLink.appendChild(aElement);
     }
+    await timeout(1000);
+    containerLink.classList.add('show');
 }
 
 function is_touch_enabled() {
