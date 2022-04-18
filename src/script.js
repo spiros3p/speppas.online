@@ -4,11 +4,11 @@ const initDataText = [
 ]
 
 const dataText = [
-    "- My name is Spiros, I am 25 yo and I live in Greece.",
+    "- My name is Spiros, I am 25 yo and I live in Athens, Greece.",
     "- I am an electrical and computer engineering student at the University of Patras in Greece.",
-    "- I am currently finishing writing my thesis, that I developed an application for.",
-    "- In the meantime I am working a 9-5 as a Web Developer at the NCSR Demokritos since July 2021.",
-    "- Did I mention that I have also been trading NFTs, as a second job, for the past year?",
+    "- I am currently in the process of finishing up my thesis, for which I developed an application for.",
+    "- In the meantime I have been working a 9-5 as a Web Developer at the NCSR Demokritos since July 2021.",
+    "- Did I mention that I have also been trading NFTs, as a side hustle, for the past year?",
     "Feel free to check out my personal projects on github, my CV or contact me below.",
 ]
 
