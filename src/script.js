@@ -1,15 +1,14 @@
 const initDataText = [
     "Welcome!",
-    "This is a temporary version of my website..."
+    // "This is a temporary version of my website..."
 ]
 
 const dataText = [
-    "My name is Spiros, I am 25 yo and I live in Greece.",
-    "I am an electrical and computer engineer student at the University of Patras in Greece.",
-    "I am currently finishing writing my thesis, that I developed an application for.",
-    "In the meantime I am working a 9-5 as a Web Developer at the NCSR Demokritos since July 2021.",
-    "Did I mention that I am also trading NFTs, as a second job, for the past year?",
-    "Entry dev jobs in Greece do not pay that well...",
+    "- My name is Spiros, I am 25 yo and I live in Greece.",
+    "- I am an electrical and computer engineer student at the University of Patras in Greece.",
+    "- I am currently finishing writing my thesis, that I developed an application for.",
+    "- In the meantime I am working a 9-5 as a Web Developer at the NCSR Demokritos since July 2021.",
+    "- Did I mention that I am also trading NFTs, as a second job, for the past year?",
     "Feel free to check my personal projects on github and my CV below."
 ]
 
@@ -18,15 +17,18 @@ const dataLinks = {
     './data/CV.pdf' : '<i class="fa-solid fa-arrow-up-right-from-square"></i>'
 }
 
-const typeSpeed = 70;
+const typeSpeed = 60;
 let index = 0;
 let playTimeStarted = false;
 let playTimeReady = false;
 
+// let lastTurn = false;
 let indicationText = document.createElement("span");
 indicationText.setAttribute("id", "indication-text");
 let containerText = document.getElementById('text-container');
 let containerLink = document.getElementById('link-container');
+
+let typingSound = document.getElementById('sound');
 
 window.onload = async () => {
     try {
@@ -60,6 +62,7 @@ const initialize = async () => {
 
 const playTime = async () => {
     try {
+        // lastTurn
         if (!playTimeStarted && playTimeReady) {
             playTimeStarted = true;
             indicationText.classList.remove('show');
@@ -79,20 +82,23 @@ const playTime = async () => {
 const showText = async (dataText) => {
     try {
         for (index in dataText) {
+            typingSound.play();
             let pElement = document.createElement("p");
             let spanElement = document.createElement("span");
             pElement.classList.add('on-hold');
-            pElement.innerHTML = '&nbsp&nbsp&nbsp';
+            // pElement.innerHTML = '&nbsp&nbsp&nbsp';
             pElement.appendChild(spanElement);
             containerText.appendChild(pElement);
-            await timeout(800);
+            await timeout(600);
             pElement.classList.remove('on-hold');
+            // await timeout(100);
             for (let i = 1; i <= dataText[index].length; i++) {
                 spanElement.innerText = spanElement.innerHTML + dataText[index].substring(i - 1, i);
                 await timeout(typeSpeed);
             }
             pElement.classList.add('on-hold');
-            await timeout(typeSpeed + 500);
+            typingSound.pause();
+            await timeout(typeSpeed + 400);
         }
     } catch (e) {
         console.error(e);
