@@ -34,6 +34,7 @@ let typingSound = document.getElementById('sound');
 let root = document.documentElement;
 let themeButton = document.getElementById('switch-theme');
 let themeIcon = document.querySelector('button#switch-theme i');
+let primaryColor = '#f3f3f3';
 
 let speedButton = document.getElementById('speed-button');
 let superSpeedIcon = document.querySelector('button#speed-button i.fa-forward-step');
@@ -42,6 +43,9 @@ window.onload = async () => {
     try {
         if (Math.floor(Math.random() * 2) === 1) {
             toggleTheme();
+            if (Math.floor(Math.random() * 2) === 1) {
+                primaryColor = '#37ff62';
+            }
         }
         soundButton.addEventListener('click', (event) => {
             toggleSound();
@@ -167,7 +171,7 @@ const toggleTheme = () => {
     } else {
         themeButton.classList.add('dark');
         // root.style.setProperty('--primary-color', '#37ff62'); //green
-        root.style.setProperty('--primary-color', '#f3f3f3'); //white
+        root.style.setProperty('--primary-color', primaryColor); //white
         root.style.setProperty('--secondary-color', '#1f1f1f');
         root.style.setProperty('--alternative-color', '#c0c0c0');
         root.style.setProperty('--sound-button', '#ffffff');
