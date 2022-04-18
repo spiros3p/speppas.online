@@ -42,10 +42,10 @@ let superSpeedIcon = document.querySelector('button#speed-button i.fa-forward-st
 window.onload = async () => {
     try {
         if (Math.floor(Math.random() * 2) === 1) {
-            toggleTheme();
             if (Math.floor(Math.random() * 2) === 1) {
                 primaryColor = '#37ff62';
             }
+            toggleTheme();
         }
         soundButton.addEventListener('click', (event) => {
             toggleSound();
