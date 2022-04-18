@@ -66,10 +66,10 @@ const initialize = async () => {
 
 const playTime = async () => {
     try {
-        if (typingSound.muted === true){
-            toggleSound();
-        }
         if (!playTimeStarted && playTimeReady) {
+            if (typingSound.muted === true){
+                toggleSound();
+            }
             playTimeStarted = true;
             indicationText.classList.remove('show');
             containerText.classList.add('hide');
