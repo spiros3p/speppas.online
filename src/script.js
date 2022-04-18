@@ -1,6 +1,6 @@
 const initDataText = [
     "Welcome!",
-    // "This is a temporary version of my website..."
+    "This is a temporary version of my website..."
 ]
 
 const dataText = [
