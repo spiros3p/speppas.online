@@ -13,12 +13,12 @@ const dataText = [
 ]
 
 const dataLinks = {
-    'https://github.com/spiros3p' : '<i class="fa-brands fa-github"></i>',
-    './data/CV.pdf' : '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-    'mailto:spiros3p@gmail.com' : '<i class="fa-solid fa-envelope"></i>',
+    'https://github.com/spiros3p': '<i class="fa-brands fa-github"></i>',
+    './data/CV.pdf': '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
+    'mailto:spiros3p@gmail.com': '<i class="fa-solid fa-envelope"></i>',
 }
 
-const typeSpeed = 60;
+let typeSpeed = 60;
 let index = 0;
 let playTimeStarted = false;
 let playTimeReady = false;
@@ -31,11 +31,28 @@ let containerLink = document.getElementById('link-container');
 let soundButton = document.getElementById('sound-button');
 let typingSound = document.getElementById('sound');
 
+let root = document.documentElement;
+let themeButton = document.getElementById('switch-theme');
+let themeIcon = document.querySelector('button#switch-theme i');
+
+let speedButton = document.getElementById('speed-button');
+let superSpeedIcon = document.querySelector('button#speed-button i.fa-forward-step');
+
 window.onload = async () => {
     try {
-        soundButton.addEventListener('click', (event)=>{
+        if (Math.floor(Math.random() * 2) === 1) {
+            toggleTheme();
+        }
+        soundButton.addEventListener('click', (event) => {
             toggleSound();
         })
+        themeButton.addEventListener('click', (event) => {
+            toggleTheme();
+        })
+        speedButton.addEventListener('click', (event) => {
+            toggleSpeed();
+        })
+
         if (is_touch_enabled()) {
             indicationText.innerText = "tap the screen to continue"
             console.debug("touchscreen detected");
@@ -67,7 +84,7 @@ const initialize = async () => {
 const playTime = async () => {
     try {
         if (!playTimeStarted && playTimeReady) {
-            if (typingSound.muted === true){
+            if (typingSound.muted === true) {
                 toggleSound();
             }
             playTimeStarted = true;
@@ -79,6 +96,7 @@ const playTime = async () => {
             await timeout(600);
             await showText(dataText);
             await addLinks();
+            typingSound.remove();
         }
     } catch (e) {
         console.error(e);
@@ -92,12 +110,10 @@ const showText = async (dataText) => {
             let pElement = document.createElement("p");
             let spanElement = document.createElement("span");
             pElement.classList.add('on-hold');
-            // pElement.innerHTML = '&nbsp&nbsp&nbsp';
             pElement.appendChild(spanElement);
             containerText.appendChild(pElement);
             await timeout(600);
             pElement.classList.remove('on-hold');
-            // await timeout(100);
             for (let i = 1; i <= dataText[index].length; i++) {
                 spanElement.innerText = spanElement.innerHTML + dataText[index].substring(i - 1, i);
                 await timeout(typeSpeed);
@@ -112,15 +128,15 @@ const showText = async (dataText) => {
 }
 
 async function addLinks() {
-    for (link in dataLinks){
+    for (link in dataLinks) {
         let aElement = document.createElement("a");
         aElement.classList.add('link', 'col-auto', 'mx-3', 'my-2');
         aElement.setAttribute('href', link);
         aElement.setAttribute('target', '_blank');
-        if (link.indexOf('mailto')!==-1){
-            aElement.innerHTML=`Contact Me ${dataLinks[link]}`
-        }else{
-            aElement.innerHTML = `${link.split('//')[1]?link.split('//')[1]:link.split('/').pop()} ${dataLinks[link]}`;
+        if (link.indexOf('mailto') !== -1) {
+            aElement.innerHTML = `Contact Me ${dataLinks[link]}`
+        } else {
+            aElement.innerHTML = `${link.split('//')[1] ? link.split('//')[1] : link.split('/').pop()} ${dataLinks[link]}`;
         }
         containerLink.appendChild(aElement);
     }
@@ -128,11 +144,42 @@ async function addLinks() {
     containerLink.classList.add('show');
 }
 
+const toggleSpeed = () => {
+    if (typeSpeed === 60) {
+        typeSpeed = 20;
+        typingSound.playbackRate = 2.4;
+        superSpeedIcon.classList.remove('d-none');
+    } else {
+        typingSound.playbackRate = 1;
+        typeSpeed = 60;
+        superSpeedIcon.classList.add('d-none');
+    }
+}
+
+const toggleTheme = () => {
+    if (themeButton.classList.contains('dark')) {
+        themeButton.classList.remove('dark');
+        root.style.setProperty('--primary-color', '#000000');
+        root.style.setProperty('--secondary-color', '#ffffff');
+        root.style.setProperty('--alternative-color', '#464646');
+        root.style.setProperty('--sound-button', '#000000');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+        themeButton.classList.add('dark');
+        // root.style.setProperty('--primary-color', '#37ff62'); //green
+        root.style.setProperty('--primary-color', '#f3f3f3'); //white
+        root.style.setProperty('--secondary-color', '#1f1f1f');
+        root.style.setProperty('--alternative-color', '#c0c0c0');
+        root.style.setProperty('--sound-button', '#ffffff');
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+    }
+}
+
 const toggleSound = () => {
-    if (typingSound.muted === true){
+    if (typingSound.muted === true) {
         soundButton.innerHTML = "<i class='fa-solid fa-volume-high'></i>";
         typingSound.muted = false;
-    }else{
+    } else {
         soundButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
         typingSound.muted = true;
     }
