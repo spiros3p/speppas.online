@@ -9,12 +9,13 @@ const dataText = [
     "- I am currently finishing writing my thesis, that I developed an application for.",
     "- In the meantime I am working a 9-5 as a Web Developer at the NCSR Demokritos since July 2021.",
     "- Did I mention that I am also trading NFTs, as a second job, for the past year?",
-    "Feel free to check my personal projects on github and my CV below."
+    // "Feel free to check my personal projects on github and my CV below.",
+    "Feel free to check my personal projects on github."
 ]
 
 const dataLinks = {
     'https://github.com/spiros3p' : '<i class="fa-brands fa-github"></i>',
-    './data/CV.pdf' : '<i class="fa-solid fa-arrow-up-right-from-square"></i>'
+    // './data/CV.pdf' : '<i class="fa-solid fa-arrow-up-right-from-square"></i>'
 }
 
 const typeSpeed = 60;
