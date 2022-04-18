@@ -9,8 +9,7 @@ const dataText = [
     "- I am currently finishing writing my thesis, that I developed an application for.",
     "- In the meantime I am working a 9-5 as a Web Developer at the NCSR Demokritos since July 2021.",
     "- Did I mention that I have also been trading NFTs, as a second job, for the past year?",
-    "Feel free to check my personal projects on github and my CV below.",
-    // "Feel free to check my personal projects on github."
+    "Feel free to check out my personal projects on github, my CV or contact me below.",
 ]
 
 const dataLinks = {
@@ -24,7 +23,6 @@ let index = 0;
 let playTimeStarted = false;
 let playTimeReady = false;
 
-// let lastTurn = false;
 let indicationText = document.createElement("span");
 indicationText.setAttribute("id", "indication-text");
 let containerText = document.getElementById('text-container');
