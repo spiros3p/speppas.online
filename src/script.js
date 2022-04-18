@@ -28,10 +28,14 @@ indicationText.setAttribute("id", "indication-text");
 let containerText = document.getElementById('text-container');
 let containerLink = document.getElementById('link-container');
 
+let soundButton = document.getElementById('sound-button');
 let typingSound = document.getElementById('sound');
 
 window.onload = async () => {
     try {
+        soundButton.addEventListener('click', (event)=>{
+            toggleSound();
+        })
         if (is_touch_enabled()) {
             indicationText.innerText = "tap the screen to continue"
             console.debug("touchscreen detected");
@@ -62,7 +66,9 @@ const initialize = async () => {
 
 const playTime = async () => {
     try {
-        // lastTurn
+        if (typingSound.muted === true){
+            toggleSound();
+        }
         if (!playTimeStarted && playTimeReady) {
             playTimeStarted = true;
             indicationText.classList.remove('show');
@@ -116,6 +122,16 @@ async function addLinks() {
     }
     await timeout(800);
     containerLink.classList.add('show');
+}
+
+const toggleSound = () => {
+    if (typingSound.muted === true){
+        soundButton.innerHTML = "<i class='fa-solid fa-volume-high'></i>";
+        typingSound.muted = false;
+    }else{
+        soundButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+        typingSound.muted = true;
+    }
 }
 
 function is_touch_enabled() {

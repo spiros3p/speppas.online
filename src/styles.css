@@ -6,6 +6,23 @@ main{
     min-height: 100vh;
 }
 
+button#sound-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    width: 50px;
+    text-align: left;
+}
+
+button#sound-button i{
+    font-size: 2rem;
+    color: black;
+}
+
+
 div#text-container{
     position: relative;
     opacity: 1;

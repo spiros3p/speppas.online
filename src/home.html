@@ -40,12 +40,13 @@
 
 <body>
     <main>
-        <div class="container py-5">
+        <div class="container py-5 position-relative">
+            <button type="button" id="sound-button"><i class="fa-solid fa-volume-xmark"></i></button>
             <div id="text-container"></div>
             <div id="link-container" class="row my-4"></div>
         </div>
     </main>
-    <audio controls autoplay style="display: none;" id="sound">
+    <audio controls autoplay style="display: none;" id="sound" muted>
         <source src="./data/keyboard-typing.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
