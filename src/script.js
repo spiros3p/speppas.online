@@ -48,19 +48,22 @@ window.onload = async () => {
             toggleTheme();
         }
         soundButton.addEventListener('click', (event) => {
+            event.stopPropagation();
             toggleSound();
         })
         themeButton.addEventListener('click', (event) => {
+            event.stopPropagation();
             toggleTheme();
         })
         speedButton.addEventListener('click', (event) => {
+            event.stopPropagation();
             toggleSpeed();
         })
 
         if (is_touch_enabled()) {
             indicationText.innerText = "tap the screen to continue"
             console.debug("touchscreen detected");
-            document.addEventListener("touchstart", (event) => {
+            document.addEventListener("click", (event) => {
                 playTime();
             })
         } else {
