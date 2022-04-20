@@ -48,19 +48,22 @@ window.onload = async () => {
             toggleTheme();
         }
         soundButton.addEventListener('click', (event) => {
+            event.stopPropagation();
             toggleSound();
         })
         themeButton.addEventListener('click', (event) => {
+            event.stopPropagation();
             toggleTheme();
         })
         speedButton.addEventListener('click', (event) => {
+            event.stopPropagation();
             toggleSpeed();
         })
 
         if (is_touch_enabled()) {
             indicationText.innerText = "tap the screen to continue"
             console.debug("touchscreen detected");
-            document.addEventListener("touchstart", (event) => {
+            document.addEventListener("click", (event) => {
                 playTime();
             })
         } else {
@@ -110,13 +113,14 @@ const playTime = async () => {
 const showText = async (dataText) => {
     try {
         for (index in dataText) {
-            typingSound.play();
             let pElement = document.createElement("p");
             let spanElement = document.createElement("span");
             pElement.classList.add('on-hold');
             pElement.appendChild(spanElement);
             containerText.appendChild(pElement);
-            await timeout(600);
+            await timeout(500);
+            typingSound.play();
+            await timeout(50);
             pElement.classList.remove('on-hold');
             for (let i = 1; i <= dataText[index].length; i++) {
                 spanElement.innerText = spanElement.innerHTML + dataText[index].substring(i - 1, i);
