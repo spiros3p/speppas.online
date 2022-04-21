@@ -18,7 +18,9 @@ const dataLinks = {
     'mailto:spiros3p@gmail.com': '<i class="fa-solid fa-envelope"></i>',
 }
 
-let typeSpeed = 60;
+let slow = 55;
+let fast = 20;
+let typeSpeed = slow;
 let index = 0;
 let playTimeStarted = false;
 let playTimeReady = false;
@@ -118,7 +120,7 @@ const showText = async (dataText) => {
             pElement.classList.add('on-hold');
             pElement.appendChild(spanElement);
             containerText.appendChild(pElement);
-            await timeout(500);
+            await timeout(typeSpeed*6);
             typingSound.play();
             await timeout(50);
             pElement.classList.remove('on-hold');
@@ -128,7 +130,7 @@ const showText = async (dataText) => {
             }
             pElement.classList.add('on-hold');
             typingSound.pause();
-            await timeout(typeSpeed + 400);
+            await timeout(typeSpeed + typeSpeed*5);
         }
     } catch (e) {
         console.error(e);
@@ -153,13 +155,13 @@ async function addLinks() {
 }
 
 const toggleSpeed = () => {
-    if (typeSpeed === 60) {
-        typeSpeed = 20;
-        typingSound.playbackRate = 2.4;
+    if (typeSpeed === slow) {
+        typeSpeed = fast;
+        typingSound.playbackRate = (slow/fast)-0.4;
         superSpeedIcon.classList.remove('d-none');
     } else {
         typingSound.playbackRate = 1;
-        typeSpeed = 60;
+        typeSpeed = slow;
         superSpeedIcon.classList.add('d-none');
     }
 }
