@@ -96,6 +96,16 @@ button#speed-button i{
 button#speed-button i.fa-forward{
     margin-left: -5px;
 }
+/* #ff6dff */
+button#lidia-hidden-switch{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    width: 70px;
+    height: 40px;
+    top: 2px;
+    right: 53px;
+}
 
 button#sound-button{
     position: absolute;
@@ -112,7 +122,6 @@ button#sound-button i{
     font-size: 2rem;
     color: var(--sound-button) !important;
 }
-
 
 div#text-container{
     position: relative;

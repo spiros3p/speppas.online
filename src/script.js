@@ -38,6 +38,8 @@ let themeButton = document.getElementById('switch-theme');
 let themeIcon = document.querySelector('button#switch-theme i');
 let primaryColor = '#f3f3f3';
 
+let lidiaButton = document.getElementById('lidia-hidden-switch');
+
 let speedButton = document.getElementById('speed-button');
 let superSpeedIcon = document.querySelector('button#speed-button i.fa-forward-step');
 
@@ -60,6 +62,10 @@ window.onload = async () => {
         speedButton.addEventListener('click', (event) => {
             event.stopPropagation();
             toggleSpeed();
+        })
+        lidiaButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+            toggleLidia();
         })
 
         if (is_touch_enabled()) {
@@ -192,6 +198,18 @@ const toggleSound = () => {
     } else {
         soundButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
         typingSound.muted = true;
+    }
+}
+
+const toggleLidia = () => {
+    if (root.style.getPropertyValue('--primary-color')=='#ff6dff'){
+        if (root.style.getPropertyValue('--secondary-color')=='#1f1f1f'){
+            root.style.setProperty('--primary-color', primaryColor);
+        }else{
+            root.style.setProperty('--primary-color', '#000');
+        }
+    }else{
+        root.style.setProperty('--primary-color', '#ff6dff');
     }
 }
 
