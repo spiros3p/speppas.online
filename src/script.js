@@ -69,13 +69,13 @@ window.onload = async () => {
         })
 
         if (is_touch_enabled()) {
-            indicationText.innerText = "tap the screen to continue"
+            indicationText.innerText = "tap the screen to continue..."
             console.debug("touchscreen detected");
             document.addEventListener("click", (event) => {
                 playTime();
             })
         } else {
-            indicationText.innerText = "press any key to continue"
+            indicationText.innerText = "press any key to continue..."
             console.info("touchscreen NOT detected");
             document.addEventListener('keyup', (event) => {
                 playTime();
