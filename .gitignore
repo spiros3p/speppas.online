@@ -1,7 +1,7 @@
 .DS_Store 
 src/.DS_Store
 src/index.html
-
+docker-compose.yml
 # Logs
 logs
 *.log
