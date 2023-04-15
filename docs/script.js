@@ -4,12 +4,14 @@ const initDataText = [
 ]
 
 const dataText = [
-    "- My name is Spiros, I am 25 yo living in Athens, Greece.",
-    "- I graduated in July 2022 from the Electrical and Computer Engineering department of the University of Patras, Greece.",
-    "- For my thesis, I developed a GUI for configuring 5G base stations in private 5G networks. (Angular and nodeJs)",
+    "- My name is Spiros, I am 26 yo living in Brussels, Belgium",
+    "- I have graduated from the Electrical and Computer Engineering department of the University of Patras, Greece.",
+    "- For my thesis, I developed a GUI, using angular and nodeJs, for configuring 5G base stations in private 5G networks.",
     "- In the meantime, I worked full-time as a Web Developer at the NCSR Demokritos between July 2021 - June 2022.",
-    "- Did I mention that I have also been trading NFTs on the WAX and FLOW blockchains, as a side hustle, for the past year?",
-    "- Which has prompted my current endeavour of learning smart contract development",
+    "- Since September 2022, I am working as a junior software engineer at Engie Impact.",
+    "- At Engie Impact, I am part of the devOps team of the Prosumer project, which aims to assist entities in designing a zero carbon 
+energy investment strategy!",
+    "- Did I mention that I have also been trading NFTs on the WAX and FLOW blockchains, as a side hustle, for the past 2 year?",
     "Feel free to check out my personal projects on github, my CV, my Thesis paper or contact me below.",
 ]
 
