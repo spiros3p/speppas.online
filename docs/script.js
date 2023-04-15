@@ -9,8 +9,7 @@ const dataText = [
     "- For my thesis, I developed a GUI, using angular and nodeJs, for configuring 5G base stations in private 5G networks.",
     "- In the meantime, I worked full-time as a Web Developer at the NCSR Demokritos between July 2021 - June 2022.",
     "- Since September 2022, I am working as a junior software engineer at Engie Impact.",
-    "- At Engie Impact, I am part of the devOps team of the Prosumer project, which aims to assist entities in designing a zero carbon 
-energy investment strategy!",
+    "- At Engie Impact, I am part of the devOps team of the Prosumer project, which aims to assist entities in designing a zero carbon energy investment strategy!",
     "- Did I mention that I have also been trading NFTs on the WAX and FLOW blockchains, as a side hustle, for the past 2 year?",
     "Feel free to check out my personal projects on github, my CV, my Thesis paper or contact me below.",
 ]
