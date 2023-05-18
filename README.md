@@ -1,3 +1,3 @@
-# speppas.online
+# bio.spiros.tpsflavor.site
 This is my personal website portfolio.      
-[speppas.online](https://speppas.online)
+[bio.spiros.tpsflavor.site](https://bio.spiros.tpsflavor.site/)
